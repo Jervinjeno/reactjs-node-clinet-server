@@ -12,6 +12,7 @@ RUN npm install
 COPY . .
 
 # Build the React application
+RUN npm install react-router-dom@latest
 RUN npm run build
 
 FROM nginx:alpine
