@@ -16,7 +16,6 @@ COPY . .
 # Build the React application
 RUN npm run build
 
-# Use Nginx as the base image for serving the React app
 # Use an official Nginx image as the base image
 FROM nginx:alpine
 
@@ -27,7 +26,7 @@ WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
 
 # Copy React build files from the host (assuming they are built)
-COPY build/ /usr/share/nginx/html
+COPY COPY --from=build /app/build /usr/share/nginx/html/
 
 # Copy custom Nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
