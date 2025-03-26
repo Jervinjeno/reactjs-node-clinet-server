@@ -15,5 +15,6 @@ spec:
       containers:
         - name: client
           image: react-client:v1.0  # Make sure this image has Nginx serving the React app
+          imagePullPolicy: Never        # Do not pull from a registry
           ports:
             - containerPort: 80  # ✅ Changed from 3000 to 80 (Nginx default port)

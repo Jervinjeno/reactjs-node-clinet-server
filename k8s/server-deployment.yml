@@ -16,6 +16,7 @@ spec:
       containers:
         - name: server
           image: react-server:v1.0
+          imagePullPolicy: Never        # Do not pull from a registry
           ports:
             - containerPort: 5000
           envFrom:
