@@ -22,9 +22,8 @@ FROM nginx:alpine
 # Set working directory to /usr/share/nginx/html
 WORKDIR /usr/share/nginx/html
 
-
-# Copy React build files from the host (assuming they are built)
-COPY COPY --from=build /app/build /usr/share/nginx/html/
+# Copy React build files from the build stage
+COPY --from=build /app/build /usr/share/nginx/html/
 
 # Copy custom Nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
