@@ -22,8 +22,6 @@ FROM nginx:alpine
 # Set working directory to /usr/share/nginx/html
 WORKDIR /usr/share/nginx/html
 
-# Remove default Nginx static assets
-RUN rm -rf ./*
 
 # Copy React build files from the host (assuming they are built)
 COPY COPY --from=build /app/build /usr/share/nginx/html/
