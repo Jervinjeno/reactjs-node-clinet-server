@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: stylerhun/multi-server
+          image: react-server:v1.0
           ports:
             - containerPort: 5000
           env:
@@ -28,7 +28,4 @@ spec:
             - name: PGDATABASE
               value: postgres
             - name: PGPASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: pgpassword
-                  key: PGPASSWORD
+              value: password
