@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: database-persistent-volume
+spec:
+  capacity:
+    storage: 5Gi  # Adjust the size based on your requirement
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: manual
+  hostPath:
+    path: /mnt/data/postgres  # Change this path if using cloud storage like AWS EBS or GCE Persistent Disk
